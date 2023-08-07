@@ -1,0 +1,4 @@
+PREFIX: "&3[&eStorage&3] &f"
+NO_PERMISSIONS: "&cУ вас нет прав на использование этой команды"
+PLAYER_HAS_NOT_TOWN: "&eУ вас нет города"
+DEFAULT_STORAGE_NAME: "Town Storage"
