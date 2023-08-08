@@ -1,6 +1,7 @@
 package com.shatun.townystorage.objects;
 
 import com.shatun.townystorage.StorageSettings;
+import com.shatun.townystorage.StorageUniverse;
 import com.shatun.townystorage.utils.Translation;
 import net.kyori.adventure.text.Component;
 import org.bukkit.Bukkit;
@@ -16,7 +17,7 @@ public class TownStorage {
     }
 
     public TownStorage() {
-        inventory = Bukkit.createInventory(null, StorageSettings.defaultStorageSize, Component.text(Translation.of("DEFAULT_STORAGE_NAME")));
+        inventory = Bukkit.createInventory(null, StorageUniverse.getInstance().getSettings().defaultStorageSize, Component.text(Translation.of("DEFAULT_STORAGE_NAME")));
     }
 
     public boolean containsItems(ItemStack[] items) {

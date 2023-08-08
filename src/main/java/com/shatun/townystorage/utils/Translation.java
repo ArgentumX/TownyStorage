@@ -1,8 +1,6 @@
 package com.shatun.townystorage.utils;
 
-import com.shatun.townystorage.utils.FileUtil;
 import org.bukkit.configuration.file.FileConfiguration;
-import org.bukkit.configuration.file.YamlConfiguration;
 
 import java.util.HashMap;
 
@@ -18,7 +16,7 @@ public class Translation {
     }
     public static void initialize(){
         TranslationMap = new HashMap<>();
-        FileConfiguration languageConfig = FileUtil.getCongigFile(Paths.SETTINGS, "language.yml");
+        FileConfiguration languageConfig = FileUtil.getCongigFile(Paths.CONFIGS, "language.yml");
         for (String key : languageConfig.getKeys(false)){
             TranslationMap.put(key, languageConfig.getString(key).replace("&", "§"));
         }
