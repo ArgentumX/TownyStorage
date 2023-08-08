@@ -16,7 +16,7 @@ public class Translation {
     }
     public static void initialize(){
         TranslationMap = new HashMap<>();
-        FileConfiguration languageConfig = FileUtil.getCongigFile(Paths.CONFIGS, "language.yml");
+        FileConfiguration languageConfig = FileUtil.getConfigFile(Paths.CONFIGS, "language.yml");
         for (String key : languageConfig.getKeys(false)){
             TranslationMap.put(key, languageConfig.getString(key).replace("&", "§"));
         }

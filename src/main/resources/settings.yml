@@ -1,2 +1,3 @@
 access_mode: "CUSTOM"
 default_storage_size: 54
+storage_autosave_period: 6000

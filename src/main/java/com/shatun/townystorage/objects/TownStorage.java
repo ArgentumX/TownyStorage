@@ -17,7 +17,7 @@ public class TownStorage {
     }
 
     public TownStorage() {
-        inventory = Bukkit.createInventory(null, StorageUniverse.getInstance().getSettings().defaultStorageSize, Component.text(Translation.of("DEFAULT_STORAGE_NAME")));
+        inventory = Bukkit.createInventory(null, StorageUniverse.getInstance().getSettings().defaultStorageSize, Component.text(Translation.of("DEFAULT_STORAGE_NAME", false)));
     }
 
     public boolean containsItems(ItemStack[] items) {

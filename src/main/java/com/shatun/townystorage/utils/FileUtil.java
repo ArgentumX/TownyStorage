@@ -9,10 +9,10 @@ import java.io.IOException;
 import java.util.HashMap;
 
 public class FileUtil {
-    public static FileConfiguration getCongigFile(String fileSegment, String fileName){
+    public static FileConfiguration getConfigFile(String fileSegment, String fileName){
         File file = new File(TownyStorage.plugin.getDataFolder(), fileSegment + fileName);
         if (!file.exists()){
-            TownyStorage.plugin.getResource(fileName);
+            TownyStorage.plugin.saveResource(fileSegment + fileName, false);
             file = new File(TownyStorage.plugin.getDataFolder(), fileSegment + fileName);
         }
         return YamlConfiguration.loadConfiguration(file);
@@ -30,6 +30,8 @@ public class FileUtil {
     }
     public static File getDirectory(String path){
         File file = new File(TownyStorage.plugin.getDataFolder(), path);
+        if (!file.exists())
+            file.mkdirs();
         return file;
     }
     public static void saveDataFile(FileConfiguration toSave, String fileSegment, String fileName){
