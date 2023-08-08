@@ -1,6 +1,5 @@
 package com.shatun.townystorage.objects;
 
-import com.shatun.townystorage.StorageSettings;
 import com.shatun.townystorage.StorageUniverse;
 import com.shatun.townystorage.utils.Translation;
 import net.kyori.adventure.text.Component;
@@ -8,15 +7,15 @@ import org.bukkit.Bukkit;
 import org.bukkit.inventory.Inventory;
 import org.bukkit.inventory.ItemStack;
 
-public class TownStorage {
+public class Storage {
     private Inventory inventory;
     private boolean needsBeSaved = false;
 
-    public TownStorage(Inventory inventory) {
+    public Storage(Inventory inventory) {
         this.inventory = inventory;
     }
 
-    public TownStorage() {
+    public Storage() {
         inventory = Bukkit.createInventory(null, StorageUniverse.getInstance().getSettings().defaultStorageSize, Component.text(Translation.of("DEFAULT_STORAGE_NAME", false)));
     }
 

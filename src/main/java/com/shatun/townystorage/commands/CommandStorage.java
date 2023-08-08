@@ -3,8 +3,8 @@ package com.shatun.townystorage.commands;
 import com.palmergames.bukkit.towny.TownyAPI;
 import com.palmergames.bukkit.towny.object.Town;
 import com.shatun.townystorage.StorageUniverse;
-import com.shatun.townystorage.TownyStorage;
-import com.shatun.townystorage.objects.TownStorage;
+import com.shatun.townystorage.enums.AccessMode;
+import com.shatun.townystorage.objects.Storage;
 import com.shatun.townystorage.utils.Perms;
 import com.shatun.townystorage.utils.Translation;
 import net.kyori.adventure.text.Component;
@@ -16,7 +16,10 @@ import org.bukkit.entity.Player;
 public class CommandStorage implements CommandExecutor {
     @Override
     public boolean onCommand(CommandSender sender, Command command, String label, String[] args) {
-        if(!sender.hasPermission(Perms.COMMAND_STORAGE) && !sender.isOp()) {
+
+        if (!(sender instanceof Player))
+            return false;
+        if(!(StorageUniverse.getInstance().getSettings().accessMode == AccessMode.ALL) && !sender.hasPermission(Perms.COMMAND_STORAGE) && !sender.isOp()) {
             sender.sendMessage(Translation.of("NO_PERMISSIONS"));
             return true;
         }
@@ -27,7 +30,7 @@ public class CommandStorage implements CommandExecutor {
                 p.sendMessage(Component.text(Translation.of("PLAYER_HAS_NOT_TOWN")));
                 return true;
             }
-            TownStorage storage = StorageUniverse.getInstance().getStorage(playerTown.getName());
+            Storage storage = StorageUniverse.getInstance().getStorage(playerTown.getName());
             storage.updateStorageSavingState(true);
             p.openInventory(storage.getInventory());
             return true;

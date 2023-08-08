@@ -1,6 +1,6 @@
 package com.shatun.townystorage;
 
-import com.shatun.townystorage.objects.TownStorage;
+import com.shatun.townystorage.objects.Storage;
 import com.shatun.townystorage.utils.FileUtil;
 import com.shatun.townystorage.utils.Paths;
 import com.shatun.townystorage.utils.Translation;
@@ -11,19 +11,17 @@ import java.util.HashMap;
 
 public class StorageUniverse {
     private static StorageUniverse instance;
-    private HashMap<String, TownStorage> storages;
+    private HashMap<String, Storage> storages;
     private StorageSettings settings;
     public static StorageUniverse getInstance(){
-        if (instance == null){
+        if (instance == null)
             instance = new StorageUniverse();
-        }
         return instance;
     }
     public void startPlugin(){
         Translation.initialize();
         settings = DataManager.loadSettings();
         storages = DataManager.loadStorages();
-        TownyHook.registerTownyCommands();
     }
 
     public void startTimers(){
@@ -38,16 +36,20 @@ public class StorageUniverse {
     public void savePluginData(){
         DataManager.saveStorages();
     }
+    public void restartPlugin(){
+        savePluginData();
+        startPlugin();
+    }
     public StorageSettings getSettings() { return settings; }
-    public HashMap<String, TownStorage> getStorages() {
+    public HashMap<String, Storage> getStorages() {
         return storages;
     }
     @Nullable
-    public TownStorage getStorage(String townName){
+    public Storage getStorage(String townName){
         return storages.getOrDefault(townName, null);
     }
     public void onTownRename(String oldName, String newName){
-        TownStorage storage = storages.get(oldName);
+        Storage storage = storages.get(oldName);
         storages.remove(oldName);
         storages.put(newName, storage);
         FileUtil.renameFile(Paths.DATA, oldName + ".yml", newName + ".yml");
@@ -59,7 +61,7 @@ public class StorageUniverse {
         removeTownStorage(townName);
     }
     public void addTownStorage(String townName){
-        TownStorage storage = new TownStorage();
+        Storage storage = new Storage();
         storages.put(townName, storage);
         DataManager.saveStorage(townName, storage);
     }

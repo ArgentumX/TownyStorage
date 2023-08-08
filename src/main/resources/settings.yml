@@ -1,3 +1,6 @@
-access_mode: "CUSTOM"
+# ALL - any resident in a town has access to storage.
+# CUSTOM - only players with special permission (townystorage.command.storage) has access to storage.
+# Add permission to towny "townyperms.yml" roles if you need specific settings of access.
+access_mode: "ALL"
 default_storage_size: 54
 storage_autosave_period: 6000
