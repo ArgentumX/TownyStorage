@@ -8,7 +8,7 @@ public class Paths {
 
     public static String YML_SETTINGS_ACCESS_MODE = "access_mode";
     public static String YML_SETTINGS_DEFAULT_SIZE = "default_storage_size";
-    public static String YML_SETTINGS_AUTOSAVE_PERIOD = "default_storage_size";
+    public static String YML_SETTINGS_AUTOSAVE_PERIOD = "storage_autosave_period";
 
 
 

@@ -25,7 +25,6 @@ public class StorageUniverse {
     }
 
     public void startTimers(){
-
         // Storages save timer.
         Bukkit.getScheduler().scheduleSyncRepeatingTask(TownyStorage.plugin, new Runnable() { @Override
         public void run() {

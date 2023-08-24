@@ -22,13 +22,13 @@ import org.jetbrains.annotations.NotNull;
 public class CommandAdminStorage implements CommandExecutor {
     @Override
     public boolean onCommand(CommandSender sender, Command command, String label, String[] args) {
-
         if(!sender.hasPermission(Perms.ADMIN) && !sender.isOp()) {
             sender.sendMessage(Translation.of("NO_PERMISSIONS"));
             return true;
         }
         if (args.length == 1){
             if(args[0].equals("reload")){
+                TownyStorage.plugin.getLogger().info("Plugin reloaded");
                 StorageUniverse.getInstance().restartPlugin();
                 return true;
             } else if (args[0].equals("about")) {

@@ -19,11 +19,9 @@ public class DataManager {
     public static StorageSettings loadSettings(){
         StorageSettings settings = new StorageSettings();
         FileConfiguration fileConfiguration = FileUtil.getConfigFile(Paths.CONFIGS, "settings.yml");
-
         settings.accessMode = AccessMode.valueOf(fileConfiguration.getString(Paths.YML_SETTINGS_ACCESS_MODE));
         settings.defaultStorageSize = fileConfiguration.getInt(Paths.YML_SETTINGS_DEFAULT_SIZE);
         settings.storageAutosavePeriod = fileConfiguration.getInt(Paths.YML_SETTINGS_AUTOSAVE_PERIOD);
-
         return settings;
     }
 
