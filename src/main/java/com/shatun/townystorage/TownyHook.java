@@ -19,7 +19,7 @@ public class TownyHook {
 
         // /ta storage
         AddonCommand storageAdminCommand = new AddonCommand(TownyCommandAddonAPI.CommandType.TOWNYADMIN, "storage", new CommandAdminStorage());
-        storageAdminCommand.setTabCompletion(-1, Arrays.asList("open", "reload"));
+        storageAdminCommand.setTabCompletion(-1, Arrays.asList("open", "reload", "about"));
         TownyCommandAddonAPI.addSubCommand(storageAdminCommand);
     }
     public static void createStoragesForOldTowns(){

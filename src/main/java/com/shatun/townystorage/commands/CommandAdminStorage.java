@@ -34,7 +34,7 @@ public class CommandAdminStorage implements CommandExecutor {
             } else if (args[0].equals("about")) {
                 if (sender instanceof Player){
                     Player p = (Player) sender;
-                    TextComponent message = new TextComponent("§7(§4URL§7)");
+                    TextComponent message = new TextComponent("§7(§ehttps://github.com/Comissar1917/TownyStorage/tree/master§7)");
                     message.setClickEvent(new ClickEvent(ClickEvent.Action.OPEN_URL, "https://github.com/Comissar1917/TownyStorage/tree/master"));
                     message.setHoverEvent(new HoverEvent(HoverEvent.Action.SHOW_TEXT, new ComponentBuilder("source code").create()));
                     p.sendMessage("\n§lAuthor: §3Shatun\n§f§lversion: §e" + TownyStorage.plugin.getDescription().getVersion());

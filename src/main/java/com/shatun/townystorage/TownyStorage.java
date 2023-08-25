@@ -1,5 +1,6 @@
 package com.shatun.townystorage;
 
+import com.shatun.townystorage.commands.CommandTownyStorage;
 import com.shatun.townystorage.enums.AccessMode;
 import com.shatun.townystorage.listeners.TownyListener;
 import org.bukkit.Bukkit;
@@ -16,6 +17,7 @@ public final class TownyStorage extends JavaPlugin {
         StorageUniverse.getInstance().startPlugin();
         StorageUniverse.getInstance().startTimers();
         Bukkit.getPluginManager().registerEvents(new TownyListener(), this);
+        plugin.getCommand("townystorage").setExecutor(new CommandTownyStorage());
         TownyHook.createStoragesForOldTowns();
         TownyHook.registerTownyCommands();
     }

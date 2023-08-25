@@ -5,3 +5,7 @@ api-version: 1.16
 depend: [ Towny ]
 authors: [ Shatun ]
 description: Storage system for towns
+commands:
+  townystorage:
+    description: information about plugin
+    usage: /townystorage
